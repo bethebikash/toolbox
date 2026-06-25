@@ -1,0 +1,7 @@
+{
+  "extends": "@toolbox/tsconfig/base.json",
+  "compilerOptions": {
+    "composite": true
+  },
+  "include": ["vite.config.ts"]
+}

@@ -1,0 +1,15 @@
+{
+  "extends": "@toolbox/tsconfig/react.json",
+  "compilerOptions": {
+    "outDir":  "dist",
+    "rootDir": "src",
+    "paths": {
+      "@toolbox/design-system":   ["../../packages/design-system/src"],
+      "@toolbox/design-system/*": ["../../packages/design-system/src/*"],
+      "@toolbox/shared":          ["../../packages/shared/src"],
+      "@toolbox/shared/*":        ["../../packages/shared/src/*"]
+    }
+  },
+  "include": ["src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
