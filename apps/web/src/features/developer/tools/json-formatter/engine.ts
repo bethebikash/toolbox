@@ -8,13 +8,12 @@ export function formatJSON(input: string, indent: number = 2): FormatResult {
     const output = JSON.stringify(parsed, null, indent);
     return { ok: true, output, lineCount: output.split('\n').length };
   } catch (e) {
-    const msg = (e as Error).message;
+    const msg       = (e as Error).message;
     const lineMatch = msg.match(/line (\d+)/);
-    return {
-      ok: false,
-      error: msg,
-      line: lineMatch ? parseInt(lineMatch[1]!) : undefined,
-    };
+    const result: FormatResult = lineMatch
+      ? { ok: false, error: msg, line: parseInt(lineMatch[1]!) }
+      : { ok: false, error: msg };
+    return result;
   }
 }
 

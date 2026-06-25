@@ -1,18 +1,18 @@
 import imageCompression from 'browser-image-compression';
 
 export interface CompressOptions {
-  maxSizeMB: number;
+  maxSizeMB:        number;
   maxWidthOrHeight?: number;
-  quality: number;         // 0–1
-  preserveExif: boolean;
+  quality:          number;
+  preserveExif:     boolean;
 }
 
 export interface CompressResult {
-  file: File;
-  originalSize: number;
+  file:           File;
+  originalSize:   number;
   compressedSize: number;
-  savedPercent: number;
-  url: string;            // object URL for preview
+  savedPercent:   number;
+  url:            string;
 }
 
 export async function compressImage(
@@ -20,16 +20,23 @@ export async function compressImage(
   opts: CompressOptions,
   onProgress?: (pct: number) => void,
 ): Promise<CompressResult> {
-  const compressed = await imageCompression(file, {
-    maxSizeMB:        opts.maxSizeMB,
-    maxWidthOrHeight: opts.maxWidthOrHeight,
-    initialQuality:   opts.quality,
-    preserveExif:     opts.preserveExif,
-    useWebWorker:     true,
-    onProgress,
-  });
+  const options: Parameters<typeof imageCompression>[1] = {
+    maxSizeMB:      opts.maxSizeMB,
+    initialQuality: opts.quality,
+    preserveExif:   opts.preserveExif,
+    useWebWorker:   true,
+  };
 
-  const url = URL.createObjectURL(compressed);
+  // Only set optional fields when defined — required by exactOptionalPropertyTypes
+  if (opts.maxWidthOrHeight !== undefined) {
+    options.maxWidthOrHeight = opts.maxWidthOrHeight;
+  }
+  if (onProgress !== undefined) {
+    options.onProgress = onProgress;
+  }
+
+  const compressed = await imageCompression(file, options);
+  const url        = URL.createObjectURL(compressed);
 
   return {
     file:           compressed,

@@ -8,6 +8,7 @@ const NotFoundPage        = lazy(() => import('../pages/NotFoundPage'));
 const UUIDGeneratorPage   = lazy(() => import('../features/utility/tools/uuid-generator/UUIDGeneratorPage'));
 const JSONFormatterPage   = lazy(() => import('../features/developer/tools/json-formatter/JSONFormatterPage'));
 const ImageCompressorPage = lazy(() => import('../features/image/tools/compressor/ImageCompressorPage'));
+const PDFMergerPage       = lazy(() => import('../features/pdf/tools/merger/PDFMergerPage'));
 
 function PageLoader() {
   return (
@@ -16,7 +17,7 @@ function PageLoader() {
       alignItems: 'center',
       justifyContent: 'center',
       minHeight: '40vh',
-      color: 'var(--color-neutral-400)',
+      color: 'var(--color-text-tertiary)',
       fontFamily: 'var(--font-sans)',
       fontSize: '14px',
     }}>
@@ -38,12 +39,13 @@ const router = createBrowserRouter([
     path: '/',
     element: <Shell />,
     children: [
-      { index: true,                              element: page(HomePage) },
-      { path: 'tools/:category',                  element: page(CategoryPage) },
-      { path: 'tools/image/compressor',           element: page(ImageCompressorPage) },
-      { path: 'tools/utility/uuid-generator',     element: page(UUIDGeneratorPage) },
-      { path: 'tools/developer/json-formatter',   element: page(JSONFormatterPage) },
-      { path: '*',                                element: page(NotFoundPage) },
+      { index: true,                             element: page(HomePage) },
+      { path: 'tools/:category',                 element: page(CategoryPage) },
+      { path: 'tools/image/compressor',          element: page(ImageCompressorPage) },
+      { path: 'tools/pdf/merger',                element: page(PDFMergerPage) },
+      { path: 'tools/utility/uuid-generator',    element: page(UUIDGeneratorPage) },
+      { path: 'tools/developer/json-formatter',  element: page(JSONFormatterPage) },
+      { path: '*',                               element: page(NotFoundPage) },
     ],
   },
 ]);
