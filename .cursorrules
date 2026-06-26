@@ -1,0 +1,27 @@
+# Toolbox — Cursor Rules
+
+## Non-negotiable constraints
+
+1. FILES NEVER LEAVE THE BROWSER. No file uploads to any server. All processing is client-side WASM.
+2. ENGINES ARE PURE TYPESCRIPT. packages/engines/ has zero React or UI imports.
+3. USE DESIGN TOKENS. All styles use CSS custom properties (var(--color-*), var(--space-*), etc). No hardcoded hex values. No Tailwind.
+4. NO CROSS-FEATURE IMPORTS. features/image/ never imports from features/pdf/. Shared code goes in packages/shared/.
+5. ZUSTAND FOR JOB STATE. Never use useState to track job arrays. Use useToolJobs(TOOL_ID) hook.
+6. STRICT TYPESCRIPT. exactOptionalPropertyTypes is on. Never assign T|undefined to optional T. Always null-check indexed access.
+7. EVERY TOOL HAS A MANIFEST. Register in apps/web/src/registry/registry.ts.
+
+## Package imports
+- Design system:  @toolbox/design-system
+- Shared types:   @toolbox/shared/types
+- Shared consts:  @toolbox/shared/constants
+- Job store hook: apps/web/src/hooks/useToolJobs
+
+## When adding a tool
+engine.ts → Page.tsx → manifest.ts → registry.ts → router.tsx
+
+## Styling pattern
+Use inline styles with CSS custom properties only:
+  style={{ color: 'var(--color-text-primary)', padding: 'var(--space-4)' }}
+Never:
+  className="text-blue-500 p-4"
+  style={{ color: '#1E3A5F', padding: '16px' }}
