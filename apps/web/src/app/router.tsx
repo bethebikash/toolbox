@@ -2,15 +2,26 @@ import { lazy, Suspense } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import { Shell } from './Shell';
 
-const HomePage            = lazy(() => import('../pages/HomePage'));
-const CategoryPage        = lazy(() => import('../pages/CategoryPage'));
-const NotFoundPage        = lazy(() => import('../pages/NotFoundPage'));
-const UUIDGeneratorPage   = lazy(() => import('../features/utility/tools/uuid-generator/UUIDGeneratorPage'));
-const JSONFormatterPage   = lazy(() => import('../features/developer/tools/json-formatter/JSONFormatterPage'));
-const Base64Page          = lazy(() => import('../features/developer/tools/base64/Base64Page'));
+// Pages
+const HomePage     = lazy(() => import('../pages/HomePage'));
+const CategoryPage = lazy(() => import('../pages/CategoryPage'));
+const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
+
+// Image tools
 const ImageCompressorPage = lazy(() => import('../features/image/tools/compressor/ImageCompressorPage'));
-const PDFMergerPage       = lazy(() => import('../features/pdf/tools/merger/PDFMergerPage'));
-const WordCounterPage     = lazy(() => import('../features/text/tools/word-counter/WordCounterPage'));
+
+// PDF tools
+const PDFMergerPage = lazy(() => import('../features/pdf/tools/merger/PDFMergerPage'));
+
+// Developer tools
+const JSONFormatterPage = lazy(() => import('../features/developer/tools/json-formatter/JSONFormatterPage'));
+const Base64Page        = lazy(() => import('../features/developer/tools/base64/Base64Page'));
+
+// Text tools
+const WordCounterPage = lazy(() => import('../features/text/tools/word-counter/WordCounterPage'));
+
+// Utility tools
+const UUIDGeneratorPage = lazy(() => import('../features/utility/tools/uuid-generator/UUIDGeneratorPage'));
 
 function PageLoader() {
   return (
@@ -37,20 +48,34 @@ const router = createBrowserRouter([
     path: '/',
     element: <Shell />,
     children: [
-      { index: true,                              element: page(HomePage) },
+      { index: true, element: page(HomePage) },
 
-      // ── Tool routes — must come BEFORE :category wildcard ──
-      { path: 'tools/image/compressor',           element: page(ImageCompressorPage) },
-      { path: 'tools/pdf/merger',                 element: page(PDFMergerPage) },
-      { path: 'tools/utility/uuid-generator',     element: page(UUIDGeneratorPage) },
-      { path: 'tools/developer/json-formatter',   element: page(JSONFormatterPage) },
-      { path: 'tools/developer/base64',           element: page(Base64Page) },
-      { path: 'tools/text/word-counter',          element: page(WordCounterPage) },
+      // tools/ — nested so specific routes always win over :category
+      {
+        path: 'tools',
+        children: [
+          // Category index pages
+          { path: ':category', element: page(CategoryPage) },
 
-      // ── Category pages — catches /tools/:category ──
-      { path: 'tools/:category',                  element: page(CategoryPage) },
+          // Image
+          { path: 'image/compressor', element: page(ImageCompressorPage) },
 
-      { path: '*',                                element: page(NotFoundPage) },
+          // PDF
+          { path: 'pdf/merger',       element: page(PDFMergerPage) },
+
+          // Developer
+          { path: 'developer/json-formatter', element: page(JSONFormatterPage) },
+          { path: 'developer/base64',         element: page(Base64Page) },
+
+          // Text
+          { path: 'text/word-counter', element: page(WordCounterPage) },
+
+          // Utility
+          { path: 'utility/uuid-generator', element: page(UUIDGeneratorPage) },
+        ],
+      },
+
+      { path: '*', element: page(NotFoundPage) },
     ],
   },
 ]);
