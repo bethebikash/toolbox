@@ -1,7 +1,6 @@
 import type { ToolManifest } from '@toolbox/shared/types';
+import { videoCompressorManifest } from '../features/video/tools/compressor/manifest';
 
-// Registry — all tools register here
-// Each manifest is a lazy import so engines never load at startup
 const manifests: ToolManifest[] = [
   // ── Image tools ──────────────────────────────────────────────
   {
@@ -192,15 +191,14 @@ const manifests: ToolManifest[] = [
       description: 'Generate random UUID v4 strings instantly. No server required.',
     },
   },
-];
 
-// ── Registry map ─────────────────────────────────────────────────────────────
+  // ── Video tools ──────────────────────────────────────────────
+  videoCompressorManifest,
+];
 
 export const registry = new Map<string, ToolManifest>(
   manifests.map(m => [m.id, m])
 );
-
-// ── Derived data — computed once at module load ───────────────────────────────
 
 export const toolsByCategory = manifests.reduce<Record<string, ToolManifest[]>>(
   (acc, tool) => {
@@ -211,9 +209,8 @@ export const toolsByCategory = manifests.reduce<Record<string, ToolManifest[]>>(
   {}
 );
 
-export const allTools = manifests;
-
-export const allSlugs = manifests.map(t => t.slug);
+export const allTools  = manifests;
+export const allSlugs  = manifests.map(t => t.slug);
 
 export function getToolById(id: string): ToolManifest | undefined {
   return registry.get(id);

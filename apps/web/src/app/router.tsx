@@ -2,26 +2,16 @@ import { lazy, Suspense } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import { Shell } from './Shell';
 
-// Pages
-const HomePage     = lazy(() => import('../pages/HomePage'));
-const CategoryPage = lazy(() => import('../pages/CategoryPage'));
-const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
-
-// Image tools
+const HomePage            = lazy(() => import('../pages/HomePage'));
+const CategoryPage        = lazy(() => import('../pages/CategoryPage'));
+const NotFoundPage        = lazy(() => import('../pages/NotFoundPage'));
 const ImageCompressorPage = lazy(() => import('../features/image/tools/compressor/ImageCompressorPage'));
-
-// PDF tools
-const PDFMergerPage = lazy(() => import('../features/pdf/tools/merger/PDFMergerPage'));
-
-// Developer tools
-const JSONFormatterPage = lazy(() => import('../features/developer/tools/json-formatter/JSONFormatterPage'));
-const Base64Page        = lazy(() => import('../features/developer/tools/base64/Base64Page'));
-
-// Text tools
-const WordCounterPage = lazy(() => import('../features/text/tools/word-counter/WordCounterPage'));
-
-// Utility tools
-const UUIDGeneratorPage = lazy(() => import('../features/utility/tools/uuid-generator/UUIDGeneratorPage'));
+const PDFMergerPage       = lazy(() => import('../features/pdf/tools/merger/PDFMergerPage'));
+const JSONFormatterPage   = lazy(() => import('../features/developer/tools/json-formatter/JSONFormatterPage'));
+const Base64Page          = lazy(() => import('../features/developer/tools/base64/Base64Page'));
+const WordCounterPage     = lazy(() => import('../features/text/tools/word-counter/WordCounterPage'));
+const UUIDGeneratorPage   = lazy(() => import('../features/utility/tools/uuid-generator/UUIDGeneratorPage'));
+const VideoCompressorPage = lazy(() => import('../features/video/tools/compressor/VideoCompressorPage'));
 
 function PageLoader() {
   return (
@@ -49,32 +39,19 @@ const router = createBrowserRouter([
     element: <Shell />,
     children: [
       { index: true, element: page(HomePage) },
-
-      // tools/ — nested so specific routes always win over :category
       {
         path: 'tools',
         children: [
-          // Category index pages
-          { path: ':category', element: page(CategoryPage) },
-
-          // Image
-          { path: 'image/compressor', element: page(ImageCompressorPage) },
-
-          // PDF
-          { path: 'pdf/merger',       element: page(PDFMergerPage) },
-
-          // Developer
+          { path: ':category',                element: page(CategoryPage) },
+          { path: 'image/compressor',         element: page(ImageCompressorPage) },
+          { path: 'pdf/merger',               element: page(PDFMergerPage) },
           { path: 'developer/json-formatter', element: page(JSONFormatterPage) },
           { path: 'developer/base64',         element: page(Base64Page) },
-
-          // Text
-          { path: 'text/word-counter', element: page(WordCounterPage) },
-
-          // Utility
-          { path: 'utility/uuid-generator', element: page(UUIDGeneratorPage) },
+          { path: 'text/word-counter',        element: page(WordCounterPage) },
+          { path: 'utility/uuid-generator',   element: page(UUIDGeneratorPage) },
+          { path: 'video/compressor',         element: page(VideoCompressorPage) },
         ],
       },
-
       { path: '*', element: page(NotFoundPage) },
     ],
   },
