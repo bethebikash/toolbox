@@ -23,6 +23,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router": "^7.0.0",
+    "spark-md5": "^3.0.2",
     "zustand": "^5.0.0"
   },
   "devDependencies": {
@@ -32,6 +33,7 @@
     "@toolbox/tsconfig": "workspace:*",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "@types/spark-md5": "^3.0.5",
     "@vitejs/plugin-react": "^4.3.4",
     "@vitest/ui": "^2.0.0",
     "jsdom": "^25.0.0",
