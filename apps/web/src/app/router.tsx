@@ -5,15 +5,28 @@ import { Shell } from './Shell';
 const HomePage              = lazy(() => import('../pages/HomePage'));
 const CategoryPage          = lazy(() => import('../pages/CategoryPage'));
 const NotFoundPage          = lazy(() => import('../pages/NotFoundPage'));
+
+// Image
 const ImageCompressorPage   = lazy(() => import('../features/image/tools/compressor/ImageCompressorPage'));
+const ImageResizerPage      = lazy(() => import('../features/image/tools/resizer/ImageResizerPage'));
+const ImageConverterPage    = lazy(() => import('../features/image/tools/converter/ImageConverterPage'));
+const BulkCompressorPage    = lazy(() => import('../features/image/tools/bulk-compressor/BulkImageCompressorPage'));
+
+// PDF
 const PDFMergerPage         = lazy(() => import('../features/pdf/tools/merger/PDFMergerPage'));
+
+// Developer
 const JSONFormatterPage     = lazy(() => import('../features/developer/tools/json-formatter/JSONFormatterPage'));
 const Base64Page            = lazy(() => import('../features/developer/tools/base64/Base64Page'));
 const HashGeneratorPage     = lazy(() => import('../features/developer/tools/hash-generator/HashGeneratorPage'));
 const PasswordGeneratorPage = lazy(() => import('../features/developer/tools/password-generator/PasswordGeneratorPage'));
 const URLEncoderPage        = lazy(() => import('../features/developer/tools/url-encoder/URLEncoderPage'));
+
+// Text + Utility
 const WordCounterPage       = lazy(() => import('../features/text/tools/word-counter/WordCounterPage'));
 const UUIDGeneratorPage     = lazy(() => import('../features/utility/tools/uuid-generator/UUIDGeneratorPage'));
+
+// Video
 const VideoCompressorPage   = lazy(() => import('../features/video/tools/compressor/VideoCompressorPage'));
 
 function PageLoader() {
@@ -37,17 +50,20 @@ const router = createBrowserRouter([
       {
         path: 'tools',
         children: [
-          { path: ':category',                  element: page(CategoryPage) },
-          { path: 'image/compressor',           element: page(ImageCompressorPage) },
-          { path: 'pdf/merger',                 element: page(PDFMergerPage) },
-          { path: 'developer/json-formatter',   element: page(JSONFormatterPage) },
-          { path: 'developer/base64',           element: page(Base64Page) },
-          { path: 'developer/hash-generator',   element: page(HashGeneratorPage) },
+          { path: ':category',                    element: page(CategoryPage) },
+          { path: 'image/compressor',             element: page(ImageCompressorPage) },
+          { path: 'image/resizer',                element: page(ImageResizerPage) },
+          { path: 'image/converter',              element: page(ImageConverterPage) },
+          { path: 'image/bulk-compressor',        element: page(BulkCompressorPage) },
+          { path: 'pdf/merger',                   element: page(PDFMergerPage) },
+          { path: 'developer/json-formatter',     element: page(JSONFormatterPage) },
+          { path: 'developer/base64',             element: page(Base64Page) },
+          { path: 'developer/hash-generator',     element: page(HashGeneratorPage) },
           { path: 'developer/password-generator', element: page(PasswordGeneratorPage) },
-          { path: 'developer/url-encoder',      element: page(URLEncoderPage) },
-          { path: 'text/word-counter',          element: page(WordCounterPage) },
-          { path: 'utility/uuid-generator',     element: page(UUIDGeneratorPage) },
-          { path: 'video/compressor',           element: page(VideoCompressorPage) },
+          { path: 'developer/url-encoder',        element: page(URLEncoderPage) },
+          { path: 'text/word-counter',            element: page(WordCounterPage) },
+          { path: 'utility/uuid-generator',       element: page(UUIDGeneratorPage) },
+          { path: 'video/compressor',             element: page(VideoCompressorPage) },
         ],
       },
       { path: '*', element: page(NotFoundPage) },
