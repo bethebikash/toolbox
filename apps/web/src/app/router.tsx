@@ -14,6 +14,9 @@ const BulkCompressorPage    = lazy(() => import('../features/image/tools/bulk-co
 
 // PDF
 const PDFMergerPage         = lazy(() => import('../features/pdf/tools/merger/PDFMergerPage'));
+const PDFSplitterPage       = lazy(() => import('../features/pdf/tools/splitter/PDFSplitterPage'));
+const PDFCompressorPage     = lazy(() => import('../features/pdf/tools/compressor/PDFCompressorPage'));
+const PDFToImagesPage       = lazy(() => import('../features/pdf/tools/to-images/PDFToImagesPage'));
 
 // Developer
 const JSONFormatterPage     = lazy(() => import('../features/developer/tools/json-formatter/JSONFormatterPage'));
@@ -51,18 +54,31 @@ const router = createBrowserRouter([
         path: 'tools',
         children: [
           { path: ':category',                    element: page(CategoryPage) },
+
+          // Image
           { path: 'image/compressor',             element: page(ImageCompressorPage) },
           { path: 'image/resizer',                element: page(ImageResizerPage) },
           { path: 'image/converter',              element: page(ImageConverterPage) },
           { path: 'image/bulk-compressor',        element: page(BulkCompressorPage) },
+
+          // PDF
           { path: 'pdf/merger',                   element: page(PDFMergerPage) },
+          { path: 'pdf/splitter',                 element: page(PDFSplitterPage) },
+          { path: 'pdf/compressor',               element: page(PDFCompressorPage) },
+          { path: 'pdf/to-images',                element: page(PDFToImagesPage) },
+
+          // Developer
           { path: 'developer/json-formatter',     element: page(JSONFormatterPage) },
           { path: 'developer/base64',             element: page(Base64Page) },
           { path: 'developer/hash-generator',     element: page(HashGeneratorPage) },
           { path: 'developer/password-generator', element: page(PasswordGeneratorPage) },
           { path: 'developer/url-encoder',        element: page(URLEncoderPage) },
+
+          // Text + Utility
           { path: 'text/word-counter',            element: page(WordCounterPage) },
           { path: 'utility/uuid-generator',       element: page(UUIDGeneratorPage) },
+
+          // Video
           { path: 'video/compressor',             element: page(VideoCompressorPage) },
         ],
       },
