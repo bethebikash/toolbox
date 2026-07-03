@@ -11,6 +11,9 @@ const ImageCompressorPage    = lazy(() => import('../features/image/tools/compre
 const ImageResizerPage       = lazy(() => import('../features/image/tools/resizer/ImageResizerPage'));
 const ImageConverterPage     = lazy(() => import('../features/image/tools/converter/ImageConverterPage'));
 const BulkCompressorPage     = lazy(() => import('../features/image/tools/bulk-compressor/BulkImageCompressorPage'));
+const FlipRotatePage         = lazy(() => import('../features/image/tools/flip-rotate/FlipRotatePage'));
+const WatermarkPage          = lazy(() => import('../features/image/tools/watermark/WatermarkPage'));
+const ImageCropPage          = lazy(() => import('../features/image/tools/crop/ImageCropPage'));
 
 // PDF
 const PDFMergerPage          = lazy(() => import('../features/pdf/tools/merger/PDFMergerPage'));
@@ -80,6 +83,9 @@ const router = createBrowserRouter([
           { path: 'image/resizer',                   element: page(ImageResizerPage) },
           { path: 'image/converter',                 element: page(ImageConverterPage) },
           { path: 'image/bulk-compressor',           element: page(BulkCompressorPage) },
+          { path: 'image/flip-rotate',               element: page(FlipRotatePage) },
+          { path: 'image/watermark',                 element: page(WatermarkPage) },
+          { path: 'image/crop',                      element: page(ImageCropPage) },
 
           // PDF
           { path: 'pdf/merger',                      element: page(PDFMergerPage) },

@@ -6,6 +6,9 @@ import { videoCompressorManifest }      from '../features/video/tools/compressor
 // Image
 import { imageResizerManifest }         from '../features/image/tools/resizer/manifest';
 import { imageConverterManifest }       from '../features/image/tools/converter/manifest';
+import { flipRotateManifest }         from '../features/image/tools/flip-rotate/manifest';
+import { watermarkManifest }           from '../features/image/tools/watermark/manifest';
+import { imageCropManifest }           from '../features/image/tools/crop/manifest';
 import { bulkImageCompressorManifest }  from '../features/image/tools/bulk-compressor/manifest';
 
 // PDF
@@ -46,6 +49,9 @@ const manifests: ToolManifest[] = [
   imageResizerManifest,
   imageConverterManifest,
   bulkImageCompressorManifest,
+  flipRotateManifest,
+  watermarkManifest,
+  imageCropManifest,
 
   // ── PDF ────────────────────────────────────────────────────────────────────
   { id:'pdf-merger', slug:'/tools/pdf/merger', category:'pdf', name:'PDF Merger', description:'Combine multiple PDF files into one document.', icon:'file-plus', keywords:['merge','combine','pdf'], accepts:['application/pdf'], maxFileSizeMB:100, maxFiles:50, requiresServer:false, engine:()=>import('../features/pdf/tools/merger/engine'), meta:{ title:'Free PDF Merger', description:'Merge PDFs online.' } },
