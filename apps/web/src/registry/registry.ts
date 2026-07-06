@@ -1,6 +1,8 @@
 import type { ToolManifest } from '@toolbox/shared/types';
 
 // Video
+import { videoTrimmerManifest }          from '../features/video/tools/trimmer/manifest';
+import { extractAudioManifest }         from '../features/audio/tools/extract-audio/manifest';
 import { videoCompressorManifest }      from '../features/video/tools/compressor/manifest';
 
 // Image
@@ -91,6 +93,8 @@ const manifests: ToolManifest[] = [
   countdownTimerManifest,
 
   // ── Video ─────────────────────────────────────────────────────────────────
+  videoTrimmerManifest,
+  extractAudioManifest,
   videoCompressorManifest,
 ];
 

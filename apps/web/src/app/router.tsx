@@ -53,6 +53,8 @@ const BMICalculatorPage      = lazy(() => import('../features/utility/tools/bmi-
 const CountdownTimerPage     = lazy(() => import('../features/utility/tools/countdown-timer/CountdownTimerPage'));
 
 // Video
+const VideoTrimmerPage       = lazy(() => import('../features/video/tools/trimmer/VideoTrimmerPage'));
+const ExtractAudioPage      = lazy(() => import('../features/audio/tools/extract-audio/ExtractAudioPage'));
 const VideoCompressorPage    = lazy(() => import('../features/video/tools/compressor/VideoCompressorPage'));
 
 function PageLoader() {
@@ -126,6 +128,8 @@ const router = createBrowserRouter([
 
           // Video
           { path: 'video/compressor',                element: page(VideoCompressorPage) },
+          { path: 'video/trimmer',                   element: page(VideoTrimmerPage) },
+          { path: 'audio/extract-audio',             element: page(ExtractAudioPage) },
         ],
       },
       { path: '*', element: page(NotFoundPage) },
