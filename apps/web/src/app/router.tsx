@@ -41,6 +41,9 @@ const RemoveSpacesPage       = lazy(() => import('../features/text/tools/remove-
 const TextSorterPage         = lazy(() => import('../features/text/tools/text-sorter/TextSorterPage'));
 
 // Color & Design
+const FaviconGeneratorPage   = lazy(() => import('../features/color/tools/favicon-generator/FaviconGeneratorPage'));
+const GradientGeneratorPage  = lazy(() => import('../features/color/tools/gradient-generator/GradientGeneratorPage'));
+const BarcodeGeneratorPage   = lazy(() => import('../features/color/tools/barcode-generator/BarcodeGeneratorPage'));
 const QRGeneratorPage        = lazy(() => import('../features/color/tools/qr-generator/QRGeneratorPage'));
 const ColorPickerPage        = lazy(() => import('../features/color/tools/color-picker/ColorPickerPage'));
 
@@ -115,6 +118,9 @@ const router = createBrowserRouter([
           { path: 'text/text-sorter',                element: page(TextSorterPage) },
 
           // Color & Design
+          { path: 'color/favicon-generator',         element: page(FaviconGeneratorPage) },
+          { path: 'color/gradient-generator',        element: page(GradientGeneratorPage) },
+          { path: 'color/barcode-generator',         element: page(BarcodeGeneratorPage) },
           { path: 'color/qr-generator',              element: page(QRGeneratorPage) },
           { path: 'color/color-picker',              element: page(ColorPickerPage) },
 

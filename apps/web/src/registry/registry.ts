@@ -35,6 +35,9 @@ import { removeSpacesManifest }         from '../features/text/tools/remove-spac
 import { textSorterManifest }           from '../features/text/tools/text-sorter/manifest';
 
 // Color
+import { faviconGeneratorManifest }      from '../features/color/tools/favicon-generator/manifest';
+import { gradientGeneratorManifest }    from '../features/color/tools/gradient-generator/manifest';
+import { barcodeGeneratorManifest }     from '../features/color/tools/barcode-generator/manifest';
 import { qrGeneratorManifest }          from '../features/color/tools/qr-generator/manifest';
 import { colorPickerManifest }          from '../features/color/tools/color-picker/manifest';
 
@@ -81,6 +84,9 @@ const manifests: ToolManifest[] = [
   textSorterManifest,
 
   // ── Color & Design ────────────────────────────────────────────────────────
+  faviconGeneratorManifest,
+  gradientGeneratorManifest,
+  barcodeGeneratorManifest,
   qrGeneratorManifest,
   colorPickerManifest,
 
