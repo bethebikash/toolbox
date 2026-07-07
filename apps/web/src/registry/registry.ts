@@ -1,17 +1,20 @@
 import type { ToolManifest } from '@toolbox/shared/types';
 
-// Video
-import { videoTrimmerManifest }          from '../features/video/tools/trimmer/manifest';
-import { extractAudioManifest }         from '../features/audio/tools/extract-audio/manifest';
+// Video / Audio
 import { videoCompressorManifest }      from '../features/video/tools/compressor/manifest';
+import { videoTrimmerManifest }         from '../features/video/tools/trimmer/manifest';
+import { extractAudioManifest }         from '../features/audio/tools/extract-audio/manifest';
 
 // Image
 import { imageResizerManifest }         from '../features/image/tools/resizer/manifest';
 import { imageConverterManifest }       from '../features/image/tools/converter/manifest';
-import { flipRotateManifest }         from '../features/image/tools/flip-rotate/manifest';
-import { watermarkManifest }           from '../features/image/tools/watermark/manifest';
-import { imageCropManifest }           from '../features/image/tools/crop/manifest';
 import { bulkImageCompressorManifest }  from '../features/image/tools/bulk-compressor/manifest';
+import { flipRotateManifest }           from '../features/image/tools/flip-rotate/manifest';
+import { watermarkManifest }            from '../features/image/tools/watermark/manifest';
+import { imageCropManifest }            from '../features/image/tools/crop/manifest';
+import { imageToBase64Manifest }        from '../features/image/tools/to-base64/manifest';
+import { exifViewerManifest }           from '../features/image/tools/exif-viewer/manifest';
+import { imageFiltersManifest }         from '../features/image/tools/filters/manifest';
 
 // PDF
 import { pdfSplitterManifest }          from '../features/pdf/tools/splitter/manifest';
@@ -25,6 +28,9 @@ import { urlEncoderManifest }           from '../features/developer/tools/url-en
 import { cssMinifierManifest }          from '../features/developer/tools/css-minifier/manifest';
 import { jsMinifierManifest }           from '../features/developer/tools/js-minifier/manifest';
 import { jwtDecoderManifest }           from '../features/developer/tools/jwt-decoder/manifest';
+import { htmlMinifierManifest }         from '../features/developer/tools/html-minifier/manifest';
+import { xmlFormatterManifest }         from '../features/developer/tools/xml-formatter/manifest';
+import { regexTesterManifest }          from '../features/developer/tools/regex-tester/manifest';
 
 // Text
 import { markdownConverterManifest }    from '../features/text/tools/markdown-converter/manifest';
@@ -33,13 +39,17 @@ import { textReverserManifest }         from '../features/text/tools/text-revers
 import { removeDuplicatesManifest }     from '../features/text/tools/remove-duplicates/manifest';
 import { removeSpacesManifest }         from '../features/text/tools/remove-spaces/manifest';
 import { textSorterManifest }           from '../features/text/tools/text-sorter/manifest';
+import { textToSlugManifest }           from '../features/text/tools/text-to-slug/manifest';
+import { loremIpsumManifest }           from '../features/text/tools/lorem-ipsum/manifest';
+import { readingTimeManifest }          from '../features/text/tools/reading-time/manifest';
+import { unicodeConverterManifest }     from '../features/text/tools/unicode-converter/manifest';
 
-// Color
-import { faviconGeneratorManifest }      from '../features/color/tools/favicon-generator/manifest';
-import { gradientGeneratorManifest }    from '../features/color/tools/gradient-generator/manifest';
-import { barcodeGeneratorManifest }     from '../features/color/tools/barcode-generator/manifest';
+// Color & Design
 import { qrGeneratorManifest }          from '../features/color/tools/qr-generator/manifest';
 import { colorPickerManifest }          from '../features/color/tools/color-picker/manifest';
+import { faviconGeneratorManifest }     from '../features/color/tools/favicon-generator/manifest';
+import { gradientGeneratorManifest }    from '../features/color/tools/gradient-generator/manifest';
+import { barcodeGeneratorManifest }     from '../features/color/tools/barcode-generator/manifest';
 
 // Utility
 import { ageCalculatorManifest }        from '../features/utility/tools/age-calculator/manifest';
@@ -47,9 +57,21 @@ import { percentageCalculatorManifest } from '../features/utility/tools/percenta
 import { unitConverterManifest }        from '../features/utility/tools/unit-converter/manifest';
 import { bmiCalculatorManifest }        from '../features/utility/tools/bmi-calculator/manifest';
 import { countdownTimerManifest }       from '../features/utility/tools/countdown-timer/manifest';
+import { loanCalculatorManifest }       from '../features/utility/tools/loan-calculator/manifest';
+import { randomGeneratorManifest }      from '../features/utility/tools/random-generator/manifest';
+import { numberToWordsManifest }        from '../features/utility/tools/number-to-words/manifest';
+import { charFrequencyManifest }        from '../features/utility/tools/char-frequency/manifest';
+import { currencyConverterManifest }    from '../features/utility/tools/currency-converter/manifest';
+
+// SEO
+import { metaTagGeneratorManifest }     from '../features/seo/tools/meta-tag-generator/manifest';
+import { robotsGeneratorManifest }      from '../features/seo/tools/robots-generator/manifest';
+import { ogPreviewManifest }            from '../features/seo/tools/og-preview/manifest';
+import { serpPreviewManifest }          from '../features/seo/tools/serp-preview/manifest';
+import { sitemapGeneratorManifest }     from '../features/seo/tools/sitemap-generator/manifest';
 
 const manifests: ToolManifest[] = [
-  // ── Image ─────────────────────────────────────────────────────────────────
+  // ── Image (10) ────────────────────────────────────────────────────────────
   { id:'image-compressor', slug:'/tools/image/compressor', category:'image', name:'Image Compressor', description:'Reduce image file size without visible quality loss.', icon:'image-down', keywords:['compress','optimize','jpg','png','webp'], accepts:['image/jpeg','image/png','image/webp','image/avif'], maxFileSizeMB:50, maxFiles:20, requiresServer:false, engine:()=>import('../features/image/tools/compressor/engine'), meta:{ title:'Free Image Compressor', description:'Compress images up to 90%.' } },
   imageResizerManifest,
   imageConverterManifest,
@@ -57,14 +79,17 @@ const manifests: ToolManifest[] = [
   flipRotateManifest,
   watermarkManifest,
   imageCropManifest,
+  imageToBase64Manifest,
+  exifViewerManifest,
+  imageFiltersManifest,
 
-  // ── PDF ────────────────────────────────────────────────────────────────────
+  // ── PDF (4) ────────────────────────────────────────────────────────────────
   { id:'pdf-merger', slug:'/tools/pdf/merger', category:'pdf', name:'PDF Merger', description:'Combine multiple PDF files into one document.', icon:'file-plus', keywords:['merge','combine','pdf'], accepts:['application/pdf'], maxFileSizeMB:100, maxFiles:50, requiresServer:false, engine:()=>import('../features/pdf/tools/merger/engine'), meta:{ title:'Free PDF Merger', description:'Merge PDFs online.' } },
   pdfSplitterManifest,
   pdfCompressorManifest,
   pdfToImagesManifest,
 
-  // ── Developer ─────────────────────────────────────────────────────────────
+  // ── Developer (11) ────────────────────────────────────────────────────────
   { id:'json-formatter', slug:'/tools/developer/json-formatter', category:'developer', name:'JSON Formatter', description:'Format, validate and minify JSON.', icon:'braces', keywords:['json','format','validate'], accepts:[], maxFileSizeMB:0, maxFiles:0, requiresServer:false, engine:()=>import('../features/developer/tools/json-formatter/engine'), meta:{ title:'JSON Formatter', description:'Format JSON.' } },
   { id:'base64-encoder', slug:'/tools/developer/base64', category:'developer', name:'Base64 Encoder / Decoder', description:'Encode and decode Base64 strings.', icon:'binary', keywords:['base64','encode','decode'], accepts:[], maxFileSizeMB:10, maxFiles:1, requiresServer:false, engine:()=>import('../features/developer/tools/base64/engine'), meta:{ title:'Base64 Encoder', description:'Encode or decode Base64.' } },
   hashGeneratorManifest,
@@ -73,8 +98,11 @@ const manifests: ToolManifest[] = [
   cssMinifierManifest,
   jsMinifierManifest,
   jwtDecoderManifest,
+  htmlMinifierManifest,
+  xmlFormatterManifest,
+  regexTesterManifest,
 
-  // ── Text ──────────────────────────────────────────────────────────────────
+  // ── Text (11) ─────────────────────────────────────────────────────────────
   { id:'word-counter', slug:'/tools/text/word-counter', category:'text', name:'Word Counter', description:'Count words, characters, sentences and reading time.', icon:'case-sensitive', keywords:['word','count','character'], accepts:[], maxFileSizeMB:0, maxFiles:0, requiresServer:false, engine:()=>import('../features/text/tools/word-counter/engine'), meta:{ title:'Word Counter', description:'Count words online.' } },
   markdownConverterManifest,
   caseConverterManifest,
@@ -82,26 +110,44 @@ const manifests: ToolManifest[] = [
   removeDuplicatesManifest,
   removeSpacesManifest,
   textSorterManifest,
+  textToSlugManifest,
+  loremIpsumManifest,
+  readingTimeManifest,
+  unicodeConverterManifest,
 
-  // ── Color & Design ────────────────────────────────────────────────────────
+  // ── Color & Design (5) ────────────────────────────────────────────────────
+  qrGeneratorManifest,
+  colorPickerManifest,
   faviconGeneratorManifest,
   gradientGeneratorManifest,
   barcodeGeneratorManifest,
-  qrGeneratorManifest,
-  colorPickerManifest,
 
-  // ── Utility ───────────────────────────────────────────────────────────────
+  // ── Utility (11) ──────────────────────────────────────────────────────────
   { id:'uuid-generator', slug:'/tools/utility/uuid-generator', category:'utility', name:'UUID Generator', description:'Generate random UUIDs (v4) instantly.', icon:'fingerprint', keywords:['uuid','guid','random'], accepts:[], maxFileSizeMB:0, maxFiles:0, requiresServer:false, engine:()=>import('../features/utility/tools/uuid-generator/engine'), meta:{ title:'UUID Generator', description:'Generate UUIDs online.' } },
   ageCalculatorManifest,
   percentageCalculatorManifest,
   unitConverterManifest,
   bmiCalculatorManifest,
   countdownTimerManifest,
+  loanCalculatorManifest,
+  randomGeneratorManifest,
+  numberToWordsManifest,
+  charFrequencyManifest,
+  currencyConverterManifest,
 
-  // ── Video ─────────────────────────────────────────────────────────────────
-  videoTrimmerManifest,
-  extractAudioManifest,
+  // ── Video (2) ─────────────────────────────────────────────────────────────
   videoCompressorManifest,
+  videoTrimmerManifest,
+
+  // ── Audio (1) ─────────────────────────────────────────────────────────────
+  extractAudioManifest,
+
+  // ── SEO (5) ───────────────────────────────────────────────────────────────
+  metaTagGeneratorManifest,
+  robotsGeneratorManifest,
+  ogPreviewManifest,
+  serpPreviewManifest,
+  sitemapGeneratorManifest,
 ];
 
 export const registry = new Map<string, ToolManifest>(manifests.map(m => [m.id, m]));

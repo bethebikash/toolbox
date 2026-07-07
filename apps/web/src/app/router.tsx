@@ -14,6 +14,9 @@ const BulkCompressorPage     = lazy(() => import('../features/image/tools/bulk-c
 const FlipRotatePage         = lazy(() => import('../features/image/tools/flip-rotate/FlipRotatePage'));
 const WatermarkPage          = lazy(() => import('../features/image/tools/watermark/WatermarkPage'));
 const ImageCropPage          = lazy(() => import('../features/image/tools/crop/ImageCropPage'));
+const ImageToBase64Page      = lazy(() => import('../features/image/tools/to-base64/ImageToBase64Page'));
+const EXIFViewerPage         = lazy(() => import('../features/image/tools/exif-viewer/EXIFViewerPage'));
+const ImageFiltersPage       = lazy(() => import('../features/image/tools/filters/ImageFiltersPage'));
 
 // PDF
 const PDFMergerPage          = lazy(() => import('../features/pdf/tools/merger/PDFMergerPage'));
@@ -30,6 +33,9 @@ const URLEncoderPage         = lazy(() => import('../features/developer/tools/ur
 const CSSMinifierPage        = lazy(() => import('../features/developer/tools/css-minifier/CSSMinifierPage'));
 const JSMinifierPage         = lazy(() => import('../features/developer/tools/js-minifier/JSMinifierPage'));
 const JWTDecoderPage         = lazy(() => import('../features/developer/tools/jwt-decoder/JWTDecoderPage'));
+const HTMLMinifierPage       = lazy(() => import('../features/developer/tools/html-minifier/HTMLMinifierPage'));
+const XMLFormatterPage       = lazy(() => import('../features/developer/tools/xml-formatter/XMLFormatterPage'));
+const RegexTesterPage        = lazy(() => import('../features/developer/tools/regex-tester/RegexTesterPage'));
 
 // Text
 const WordCounterPage        = lazy(() => import('../features/text/tools/word-counter/WordCounterPage'));
@@ -39,13 +45,17 @@ const TextReverserPage       = lazy(() => import('../features/text/tools/text-re
 const RemoveDuplicatesPage   = lazy(() => import('../features/text/tools/remove-duplicates/RemoveDuplicatesPage'));
 const RemoveSpacesPage       = lazy(() => import('../features/text/tools/remove-spaces/RemoveSpacesPage'));
 const TextSorterPage         = lazy(() => import('../features/text/tools/text-sorter/TextSorterPage'));
+const TextToSlugPage         = lazy(() => import('../features/text/tools/text-to-slug/TextToSlugPage'));
+const LoremIpsumPage         = lazy(() => import('../features/text/tools/lorem-ipsum/LoremIpsumPage'));
+const ReadingTimePage        = lazy(() => import('../features/text/tools/reading-time/ReadingTimePage'));
+const UnicodeConverterPage   = lazy(() => import('../features/text/tools/unicode-converter/UnicodeConverterPage'));
 
 // Color & Design
+const QRGeneratorPage        = lazy(() => import('../features/color/tools/qr-generator/QRGeneratorPage'));
+const ColorPickerPage        = lazy(() => import('../features/color/tools/color-picker/ColorPickerPage'));
 const FaviconGeneratorPage   = lazy(() => import('../features/color/tools/favicon-generator/FaviconGeneratorPage'));
 const GradientGeneratorPage  = lazy(() => import('../features/color/tools/gradient-generator/GradientGeneratorPage'));
 const BarcodeGeneratorPage   = lazy(() => import('../features/color/tools/barcode-generator/BarcodeGeneratorPage'));
-const QRGeneratorPage        = lazy(() => import('../features/color/tools/qr-generator/QRGeneratorPage'));
-const ColorPickerPage        = lazy(() => import('../features/color/tools/color-picker/ColorPickerPage'));
 
 // Utility
 const UUIDGeneratorPage      = lazy(() => import('../features/utility/tools/uuid-generator/UUIDGeneratorPage'));
@@ -54,11 +64,25 @@ const PercentageCalcPage     = lazy(() => import('../features/utility/tools/perc
 const UnitConverterPage      = lazy(() => import('../features/utility/tools/unit-converter/UnitConverterPage'));
 const BMICalculatorPage      = lazy(() => import('../features/utility/tools/bmi-calculator/BMICalculatorPage'));
 const CountdownTimerPage     = lazy(() => import('../features/utility/tools/countdown-timer/CountdownTimerPage'));
+const LoanCalculatorPage     = lazy(() => import('../features/utility/tools/loan-calculator/LoanCalculatorPage'));
+const RandomGeneratorPage    = lazy(() => import('../features/utility/tools/random-generator/RandomGeneratorPage'));
+const NumberToWordsPage      = lazy(() => import('../features/utility/tools/number-to-words/NumberToWordsPage'));
+const CharFrequencyPage      = lazy(() => import('../features/utility/tools/char-frequency/CharFrequencyPage'));
+const CurrencyConverterPage  = lazy(() => import('../features/utility/tools/currency-converter/CurrencyConverterPage'));
 
 // Video
-const VideoTrimmerPage       = lazy(() => import('../features/video/tools/trimmer/VideoTrimmerPage'));
-const ExtractAudioPage      = lazy(() => import('../features/audio/tools/extract-audio/ExtractAudioPage'));
 const VideoCompressorPage    = lazy(() => import('../features/video/tools/compressor/VideoCompressorPage'));
+const VideoTrimmerPage       = lazy(() => import('../features/video/tools/trimmer/VideoTrimmerPage'));
+
+// Audio
+const ExtractAudioPage       = lazy(() => import('../features/audio/tools/extract-audio/ExtractAudioPage'));
+
+// SEO
+const MetaTagGeneratorPage   = lazy(() => import('../features/seo/tools/meta-tag-generator/MetaTagGeneratorPage'));
+const RobotsGeneratorPage    = lazy(() => import('../features/seo/tools/robots-generator/RobotsGeneratorPage'));
+const OGPreviewPage          = lazy(() => import('../features/seo/tools/og-preview/OGPreviewPage'));
+const SERPPreviewPage        = lazy(() => import('../features/seo/tools/serp-preview/SERPPreviewPage'));
+const SitemapGeneratorPage   = lazy(() => import('../features/seo/tools/sitemap-generator/SitemapGeneratorPage'));
 
 function PageLoader() {
   return (
@@ -91,6 +115,9 @@ const router = createBrowserRouter([
           { path: 'image/flip-rotate',               element: page(FlipRotatePage) },
           { path: 'image/watermark',                 element: page(WatermarkPage) },
           { path: 'image/crop',                      element: page(ImageCropPage) },
+          { path: 'image/to-base64',                 element: page(ImageToBase64Page) },
+          { path: 'image/exif-viewer',               element: page(EXIFViewerPage) },
+          { path: 'image/filters',                   element: page(ImageFiltersPage) },
 
           // PDF
           { path: 'pdf/merger',                      element: page(PDFMergerPage) },
@@ -107,6 +134,9 @@ const router = createBrowserRouter([
           { path: 'developer/css-minifier',          element: page(CSSMinifierPage) },
           { path: 'developer/js-minifier',           element: page(JSMinifierPage) },
           { path: 'developer/jwt-decoder',           element: page(JWTDecoderPage) },
+          { path: 'developer/html-minifier',         element: page(HTMLMinifierPage) },
+          { path: 'developer/xml-formatter',         element: page(XMLFormatterPage) },
+          { path: 'developer/regex-tester',          element: page(RegexTesterPage) },
 
           // Text
           { path: 'text/word-counter',               element: page(WordCounterPage) },
@@ -116,13 +146,17 @@ const router = createBrowserRouter([
           { path: 'text/remove-duplicates',          element: page(RemoveDuplicatesPage) },
           { path: 'text/remove-spaces',              element: page(RemoveSpacesPage) },
           { path: 'text/text-sorter',                element: page(TextSorterPage) },
+          { path: 'text/text-to-slug',               element: page(TextToSlugPage) },
+          { path: 'text/lorem-ipsum',                element: page(LoremIpsumPage) },
+          { path: 'text/reading-time',               element: page(ReadingTimePage) },
+          { path: 'text/unicode-converter',          element: page(UnicodeConverterPage) },
 
           // Color & Design
+          { path: 'color/qr-generator',              element: page(QRGeneratorPage) },
+          { path: 'color/color-picker',              element: page(ColorPickerPage) },
           { path: 'color/favicon-generator',         element: page(FaviconGeneratorPage) },
           { path: 'color/gradient-generator',        element: page(GradientGeneratorPage) },
           { path: 'color/barcode-generator',         element: page(BarcodeGeneratorPage) },
-          { path: 'color/qr-generator',              element: page(QRGeneratorPage) },
-          { path: 'color/color-picker',              element: page(ColorPickerPage) },
 
           // Utility
           { path: 'utility/uuid-generator',          element: page(UUIDGeneratorPage) },
@@ -131,11 +165,25 @@ const router = createBrowserRouter([
           { path: 'utility/unit-converter',          element: page(UnitConverterPage) },
           { path: 'utility/bmi-calculator',          element: page(BMICalculatorPage) },
           { path: 'utility/countdown-timer',         element: page(CountdownTimerPage) },
+          { path: 'utility/loan-calculator',         element: page(LoanCalculatorPage) },
+          { path: 'utility/random-generator',        element: page(RandomGeneratorPage) },
+          { path: 'utility/number-to-words',         element: page(NumberToWordsPage) },
+          { path: 'utility/char-frequency',          element: page(CharFrequencyPage) },
+          { path: 'utility/currency-converter',      element: page(CurrencyConverterPage) },
 
           // Video
           { path: 'video/compressor',                element: page(VideoCompressorPage) },
           { path: 'video/trimmer',                   element: page(VideoTrimmerPage) },
+
+          // Audio
           { path: 'audio/extract-audio',             element: page(ExtractAudioPage) },
+
+          // SEO
+          { path: 'seo/meta-tag-generator',          element: page(MetaTagGeneratorPage) },
+          { path: 'seo/robots-generator',            element: page(RobotsGeneratorPage) },
+          { path: 'seo/og-preview',                  element: page(OGPreviewPage) },
+          { path: 'seo/serp-preview',                element: page(SERPPreviewPage) },
+          { path: 'seo/sitemap-generator',           element: page(SitemapGeneratorPage) },
         ],
       },
       { path: '*', element: page(NotFoundPage) },
