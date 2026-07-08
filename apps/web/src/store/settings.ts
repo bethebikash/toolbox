@@ -1,27 +1,31 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 
-type Theme = 'light' | 'dark' | 'system';
+export type Theme = 'light' | 'dark' | 'system';
 
-interface SettingsStore {
-  theme:            Theme;
-  autoDownload:     boolean;
-  defaultQuality:   number;
-  analyticsConsent: boolean;
-
-  setTheme:            (theme: Theme)   => void;
-  setAutoDownload:     (val: boolean)   => void;
-  setDefaultQuality:   (val: number)    => void;
-  setAnalyticsConsent: (val: boolean)   => void;
+interface SettingsState {
+  theme:             Theme;
+  autoDownload:      boolean;
+  defaultQuality:    number;
+  analyticsConsent:  boolean;
+  setTheme:          (t: Theme) => void;
+  setAutoDownload:   (v: boolean) => void;
+  setDefaultQuality: (v: number) => void;
+  setAnalytics:      (v: boolean) => void;
 }
 
-export const useSettingsStore = create<SettingsStore>(set => ({
-  theme:            'system',
-  autoDownload:     false,
-  defaultQuality:   0.8,
-  analyticsConsent: false,
-
-  setTheme:            theme   => set({ theme }),
-  setAutoDownload:     val     => set({ autoDownload: val }),
-  setDefaultQuality:   val     => set({ defaultQuality: val }),
-  setAnalyticsConsent: val     => set({ analyticsConsent: val }),
-}));
+export const useSettingsStore = create<SettingsState>()(
+  persist(
+    set => ({
+      theme:            'light',
+      autoDownload:     false,
+      defaultQuality:   0.85,
+      analyticsConsent: false,
+      setTheme:          theme            => set({ theme }),
+      setAutoDownload:   autoDownload     => set({ autoDownload }),
+      setDefaultQuality: defaultQuality   => set({ defaultQuality }),
+      setAnalytics:      analyticsConsent => set({ analyticsConsent }),
+    }),
+    { name: 'toolbox-settings' }
+  )
+);

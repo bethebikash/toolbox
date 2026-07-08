@@ -33,6 +33,8 @@ const URLEncoderPage         = lazy(() => import('../features/developer/tools/ur
 const CSSMinifierPage        = lazy(() => import('../features/developer/tools/css-minifier/CSSMinifierPage'));
 const JSMinifierPage         = lazy(() => import('../features/developer/tools/js-minifier/JSMinifierPage'));
 const JWTDecoderPage         = lazy(() => import('../features/developer/tools/jwt-decoder/JWTDecoderPage'));
+const DiffToolPage           = lazy(() => import('../features/developer/tools/diff-tool/DiffToolPage'));
+const ColorConverterPage     = lazy(() => import('../features/developer/tools/color-converter/ColorConverterPage'));
 const HTMLMinifierPage       = lazy(() => import('../features/developer/tools/html-minifier/HTMLMinifierPage'));
 const XMLFormatterPage       = lazy(() => import('../features/developer/tools/xml-formatter/XMLFormatterPage'));
 const RegexTesterPage        = lazy(() => import('../features/developer/tools/regex-tester/RegexTesterPage'));
@@ -64,6 +66,8 @@ const PercentageCalcPage     = lazy(() => import('../features/utility/tools/perc
 const UnitConverterPage      = lazy(() => import('../features/utility/tools/unit-converter/UnitConverterPage'));
 const BMICalculatorPage      = lazy(() => import('../features/utility/tools/bmi-calculator/BMICalculatorPage'));
 const CountdownTimerPage     = lazy(() => import('../features/utility/tools/countdown-timer/CountdownTimerPage'));
+const TimestampConverterPage = lazy(() => import('../features/utility/tools/timestamp-converter/TimestampConverterPage'));
+const TipCalculatorPage      = lazy(() => import('../features/utility/tools/tip-calculator/TipCalculatorPage'));
 const LoanCalculatorPage     = lazy(() => import('../features/utility/tools/loan-calculator/LoanCalculatorPage'));
 const RandomGeneratorPage    = lazy(() => import('../features/utility/tools/random-generator/RandomGeneratorPage'));
 const NumberToWordsPage      = lazy(() => import('../features/utility/tools/number-to-words/NumberToWordsPage'));
@@ -134,6 +138,8 @@ const router = createBrowserRouter([
           { path: 'developer/css-minifier',          element: page(CSSMinifierPage) },
           { path: 'developer/js-minifier',           element: page(JSMinifierPage) },
           { path: 'developer/jwt-decoder',           element: page(JWTDecoderPage) },
+          { path: 'developer/diff-tool',             element: page(DiffToolPage) },
+          { path: 'developer/color-converter',      element: page(ColorConverterPage) },
           { path: 'developer/html-minifier',         element: page(HTMLMinifierPage) },
           { path: 'developer/xml-formatter',         element: page(XMLFormatterPage) },
           { path: 'developer/regex-tester',          element: page(RegexTesterPage) },
@@ -165,6 +171,8 @@ const router = createBrowserRouter([
           { path: 'utility/unit-converter',          element: page(UnitConverterPage) },
           { path: 'utility/bmi-calculator',          element: page(BMICalculatorPage) },
           { path: 'utility/countdown-timer',         element: page(CountdownTimerPage) },
+          { path: 'utility/timestamp-converter',     element: page(TimestampConverterPage) },
+          { path: 'utility/tip-calculator',          element: page(TipCalculatorPage) },
           { path: 'utility/loan-calculator',         element: page(LoanCalculatorPage) },
           { path: 'utility/random-generator',        element: page(RandomGeneratorPage) },
           { path: 'utility/number-to-words',         element: page(NumberToWordsPage) },

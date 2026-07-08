@@ -109,3 +109,22 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+/* ── Dark mode ─────────────────────────────────────────────────────────────── */
+[data-theme="dark"] {
+  --color-bg:           #0f1117;
+  --color-surface:      #1a1d27;
+  --color-surface-2:    #22263a;
+  --color-border:       #2e3247;
+  --color-border-2:     #3a3f5c;
+
+  --color-text-primary:   #f0f2ff;
+  --color-text-secondary: #9ba3c4;
+  --color-text-tertiary:  #5c6380;
+
+  --color-brand-50:  #0d1a3a;
+
+  --color-success-bg:  #0a2218;
+  --color-warning-bg:  #1f1507;
+  --color-danger-bg:   #200d0d;
+}

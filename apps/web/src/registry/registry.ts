@@ -28,6 +28,8 @@ import { urlEncoderManifest }           from '../features/developer/tools/url-en
 import { cssMinifierManifest }          from '../features/developer/tools/css-minifier/manifest';
 import { jsMinifierManifest }           from '../features/developer/tools/js-minifier/manifest';
 import { jwtDecoderManifest }           from '../features/developer/tools/jwt-decoder/manifest';
+import { diffToolManifest }               from '../features/developer/tools/diff-tool/manifest';
+import { colorConverterManifest }        from '../features/developer/tools/color-converter/manifest';
 import { htmlMinifierManifest }         from '../features/developer/tools/html-minifier/manifest';
 import { xmlFormatterManifest }         from '../features/developer/tools/xml-formatter/manifest';
 import { regexTesterManifest }          from '../features/developer/tools/regex-tester/manifest';
@@ -57,6 +59,8 @@ import { percentageCalculatorManifest } from '../features/utility/tools/percenta
 import { unitConverterManifest }        from '../features/utility/tools/unit-converter/manifest';
 import { bmiCalculatorManifest }        from '../features/utility/tools/bmi-calculator/manifest';
 import { countdownTimerManifest }       from '../features/utility/tools/countdown-timer/manifest';
+import { timestampConverterManifest }      from '../features/utility/tools/timestamp-converter/manifest';
+import { tipCalculatorManifest }          from '../features/utility/tools/tip-calculator/manifest';
 import { loanCalculatorManifest }       from '../features/utility/tools/loan-calculator/manifest';
 import { randomGeneratorManifest }      from '../features/utility/tools/random-generator/manifest';
 import { numberToWordsManifest }        from '../features/utility/tools/number-to-words/manifest';
@@ -98,6 +102,8 @@ const manifests: ToolManifest[] = [
   cssMinifierManifest,
   jsMinifierManifest,
   jwtDecoderManifest,
+  diffToolManifest,
+  colorConverterManifest,
   htmlMinifierManifest,
   xmlFormatterManifest,
   regexTesterManifest,
@@ -129,6 +135,8 @@ const manifests: ToolManifest[] = [
   unitConverterManifest,
   bmiCalculatorManifest,
   countdownTimerManifest,
+  timestampConverterManifest,
+  tipCalculatorManifest,
   loanCalculatorManifest,
   randomGeneratorManifest,
   numberToWordsManifest,
