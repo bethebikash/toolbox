@@ -33,6 +33,11 @@ const URLEncoderPage         = lazy(() => import('../features/developer/tools/ur
 const CSSMinifierPage        = lazy(() => import('../features/developer/tools/css-minifier/CSSMinifierPage'));
 const JSMinifierPage         = lazy(() => import('../features/developer/tools/js-minifier/JSMinifierPage'));
 const JWTDecoderPage         = lazy(() => import('../features/developer/tools/jwt-decoder/JWTDecoderPage'));
+const ContrastCheckerPage    = lazy(() => import('../features/color/tools/contrast-checker/ContrastCheckerPage'));
+const PasswordStrengthPage   = lazy(() => import('../features/developer/tools/password-strength/PasswordStrengthPage'));
+const BaseConverterPage      = lazy(() => import('../features/utility/tools/base-converter/BaseConverterPage'));
+const AspectRatioPage        = lazy(() => import('../features/utility/tools/aspect-ratio/AspectRatioPage'));
+const FindReplacePage        = lazy(() => import('../features/text/tools/find-replace/FindReplacePage'));
 const DiffToolPage           = lazy(() => import('../features/developer/tools/diff-tool/DiffToolPage'));
 const ColorConverterPage     = lazy(() => import('../features/developer/tools/color-converter/ColorConverterPage'));
 const HTMLMinifierPage       = lazy(() => import('../features/developer/tools/html-minifier/HTMLMinifierPage'));
@@ -138,6 +143,7 @@ const router = createBrowserRouter([
           { path: 'developer/css-minifier',          element: page(CSSMinifierPage) },
           { path: 'developer/js-minifier',           element: page(JSMinifierPage) },
           { path: 'developer/jwt-decoder',           element: page(JWTDecoderPage) },
+          { path: 'developer/password-strength',     element: page(PasswordStrengthPage) },
           { path: 'developer/diff-tool',             element: page(DiffToolPage) },
           { path: 'developer/color-converter',      element: page(ColorConverterPage) },
           { path: 'developer/html-minifier',         element: page(HTMLMinifierPage) },
@@ -152,12 +158,14 @@ const router = createBrowserRouter([
           { path: 'text/remove-duplicates',          element: page(RemoveDuplicatesPage) },
           { path: 'text/remove-spaces',              element: page(RemoveSpacesPage) },
           { path: 'text/text-sorter',                element: page(TextSorterPage) },
+          { path: 'text/find-replace',               element: page(FindReplacePage) },
           { path: 'text/text-to-slug',               element: page(TextToSlugPage) },
           { path: 'text/lorem-ipsum',                element: page(LoremIpsumPage) },
           { path: 'text/reading-time',               element: page(ReadingTimePage) },
           { path: 'text/unicode-converter',          element: page(UnicodeConverterPage) },
 
           // Color & Design
+          { path: 'color/contrast-checker',          element: page(ContrastCheckerPage) },
           { path: 'color/qr-generator',              element: page(QRGeneratorPage) },
           { path: 'color/color-picker',              element: page(ColorPickerPage) },
           { path: 'color/favicon-generator',         element: page(FaviconGeneratorPage) },
@@ -171,6 +179,8 @@ const router = createBrowserRouter([
           { path: 'utility/unit-converter',          element: page(UnitConverterPage) },
           { path: 'utility/bmi-calculator',          element: page(BMICalculatorPage) },
           { path: 'utility/countdown-timer',         element: page(CountdownTimerPage) },
+          { path: 'utility/base-converter',          element: page(BaseConverterPage) },
+          { path: 'utility/aspect-ratio',            element: page(AspectRatioPage) },
           { path: 'utility/timestamp-converter',     element: page(TimestampConverterPage) },
           { path: 'utility/tip-calculator',          element: page(TipCalculatorPage) },
           { path: 'utility/loan-calculator',         element: page(LoanCalculatorPage) },
