@@ -34,9 +34,14 @@ const CSSMinifierPage        = lazy(() => import('../features/developer/tools/cs
 const JSMinifierPage         = lazy(() => import('../features/developer/tools/js-minifier/JSMinifierPage'));
 const JWTDecoderPage         = lazy(() => import('../features/developer/tools/jwt-decoder/JWTDecoderPage'));
 const ContrastCheckerPage    = lazy(() => import('../features/color/tools/contrast-checker/ContrastCheckerPage'));
+const JSONToTypeScriptPage   = lazy(() => import('../features/developer/tools/json-to-typescript/JSONToTypeScriptPage'));
+const NumberFormatterPage    = lazy(() => import('../features/developer/tools/number-formatter/NumberFormatterPage'));
 const PasswordStrengthPage   = lazy(() => import('../features/developer/tools/password-strength/PasswordStrengthPage'));
+const DateCalculatorPage     = lazy(() => import('../features/utility/tools/date-calculator/DateCalculatorPage'));
+const SpeedCalculatorPage    = lazy(() => import('../features/utility/tools/speed-calculator/SpeedCalculatorPage'));
 const BaseConverterPage      = lazy(() => import('../features/utility/tools/base-converter/BaseConverterPage'));
 const AspectRatioPage        = lazy(() => import('../features/utility/tools/aspect-ratio/AspectRatioPage'));
+const TextStatisticsPage     = lazy(() => import('../features/text/tools/text-statistics/TextStatisticsPage'));
 const FindReplacePage        = lazy(() => import('../features/text/tools/find-replace/FindReplacePage'));
 const DiffToolPage           = lazy(() => import('../features/developer/tools/diff-tool/DiffToolPage'));
 const ColorConverterPage     = lazy(() => import('../features/developer/tools/color-converter/ColorConverterPage'));
@@ -143,6 +148,8 @@ const router = createBrowserRouter([
           { path: 'developer/css-minifier',          element: page(CSSMinifierPage) },
           { path: 'developer/js-minifier',           element: page(JSMinifierPage) },
           { path: 'developer/jwt-decoder',           element: page(JWTDecoderPage) },
+          { path: 'developer/json-to-typescript',    element: page(JSONToTypeScriptPage) },
+          { path: 'developer/number-formatter',     element: page(NumberFormatterPage) },
           { path: 'developer/password-strength',     element: page(PasswordStrengthPage) },
           { path: 'developer/diff-tool',             element: page(DiffToolPage) },
           { path: 'developer/color-converter',      element: page(ColorConverterPage) },
@@ -158,6 +165,7 @@ const router = createBrowserRouter([
           { path: 'text/remove-duplicates',          element: page(RemoveDuplicatesPage) },
           { path: 'text/remove-spaces',              element: page(RemoveSpacesPage) },
           { path: 'text/text-sorter',                element: page(TextSorterPage) },
+          { path: 'text/text-statistics',            element: page(TextStatisticsPage) },
           { path: 'text/find-replace',               element: page(FindReplacePage) },
           { path: 'text/text-to-slug',               element: page(TextToSlugPage) },
           { path: 'text/lorem-ipsum',                element: page(LoremIpsumPage) },
@@ -179,6 +187,8 @@ const router = createBrowserRouter([
           { path: 'utility/unit-converter',          element: page(UnitConverterPage) },
           { path: 'utility/bmi-calculator',          element: page(BMICalculatorPage) },
           { path: 'utility/countdown-timer',         element: page(CountdownTimerPage) },
+          { path: 'utility/date-calculator',         element: page(DateCalculatorPage) },
+          { path: 'utility/speed-calculator',        element: page(SpeedCalculatorPage) },
           { path: 'utility/base-converter',          element: page(BaseConverterPage) },
           { path: 'utility/aspect-ratio',            element: page(AspectRatioPage) },
           { path: 'utility/timestamp-converter',     element: page(TimestampConverterPage) },
