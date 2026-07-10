@@ -28,6 +28,7 @@ import { diffToolManifest } from '../features/developer/tools/diff-tool/manifest
 import { hashGeneratorManifest } from '../features/developer/tools/hash-generator/manifest';
 import { htmlMinifierManifest } from '../features/developer/tools/html-minifier/manifest';
 import { jsMinifierManifest } from '../features/developer/tools/js-minifier/manifest';
+import { cronParserManifest }            from '../features/developer/tools/cron-parser/manifest';
 import { jsonToTypeScriptManifest } from '../features/developer/tools/json-to-typescript/manifest';
 import { jwtDecoderManifest } from '../features/developer/tools/jwt-decoder/manifest';
 import { numberFormatterManifest } from '../features/developer/tools/number-formatter/manifest';
@@ -53,6 +54,7 @@ import { unicodeConverterManifest } from '../features/text/tools/unicode-convert
 
 // Color & Design
 import { barcodeGeneratorManifest } from '../features/color/tools/barcode-generator/manifest';
+import { colorPaletteManifest }          from '../features/color/tools/color-palette/manifest';
 import { colorPickerManifest } from '../features/color/tools/color-picker/manifest';
 import { contrastCheckerManifest } from '../features/color/tools/contrast-checker/manifest';
 import { faviconGeneratorManifest } from '../features/color/tools/favicon-generator/manifest';
@@ -67,6 +69,8 @@ import { bmiCalculatorManifest } from '../features/utility/tools/bmi-calculator/
 import { charFrequencyManifest } from '../features/utility/tools/char-frequency/manifest';
 import { countdownTimerManifest } from '../features/utility/tools/countdown-timer/manifest';
 import { currencyConverterManifest } from '../features/utility/tools/currency-converter/manifest';
+import { mortgageCalculatorManifest }    from '../features/utility/tools/mortgage-calculator/manifest';
+import { calorieCalculatorManifest }     from '../features/utility/tools/calorie-calculator/manifest';
 import { dateCalculatorManifest } from '../features/utility/tools/date-calculator/manifest';
 import { loanCalculatorManifest } from '../features/utility/tools/loan-calculator/manifest';
 import { numberToWordsManifest } from '../features/utility/tools/number-to-words/manifest';
@@ -168,6 +172,7 @@ const manifests: ToolManifest[] = [
   cssMinifierManifest,
   jsMinifierManifest,
   jwtDecoderManifest,
+  cronParserManifest,
   jsonToTypeScriptManifest,
   numberFormatterManifest,
   passwordStrengthManifest,
@@ -210,6 +215,7 @@ const manifests: ToolManifest[] = [
   // ── Color & Design (5) ────────────────────────────────────────────────────
   contrastCheckerManifest,
   qrGeneratorManifest,
+  colorPaletteManifest,
   colorPickerManifest,
   faviconGeneratorManifest,
   gradientGeneratorManifest,
@@ -236,6 +242,8 @@ const manifests: ToolManifest[] = [
   unitConverterManifest,
   bmiCalculatorManifest,
   countdownTimerManifest,
+  mortgageCalculatorManifest,
+  calorieCalculatorManifest,
   dateCalculatorManifest,
   speedCalculatorManifest,
   baseConverterManifest,
