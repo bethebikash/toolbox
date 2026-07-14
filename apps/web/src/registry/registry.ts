@@ -28,6 +28,8 @@ import { diffToolManifest } from '../features/developer/tools/diff-tool/manifest
 import { hashGeneratorManifest } from '../features/developer/tools/hash-generator/manifest';
 import { htmlMinifierManifest } from '../features/developer/tools/html-minifier/manifest';
 import { jsMinifierManifest } from '../features/developer/tools/js-minifier/manifest';
+import { markdownTableManifest }         from '../features/developer/tools/markdown-table/manifest';
+import { urlParserManifest }            from '../features/developer/tools/url-parser/manifest';
 import { cronParserManifest }            from '../features/developer/tools/cron-parser/manifest';
 import { jsonToTypeScriptManifest } from '../features/developer/tools/json-to-typescript/manifest';
 import { jwtDecoderManifest } from '../features/developer/tools/jwt-decoder/manifest';
@@ -40,6 +42,7 @@ import { xmlFormatterManifest } from '../features/developer/tools/xml-formatter/
 
 // Text
 import { caseConverterManifest } from '../features/text/tools/case-converter/manifest';
+import { palindromeCheckerManifest }     from '../features/text/tools/palindrome-checker/manifest';
 import { findReplaceManifest } from '../features/text/tools/find-replace/manifest';
 import { loremIpsumManifest } from '../features/text/tools/lorem-ipsum/manifest';
 import { markdownConverterManifest } from '../features/text/tools/markdown-converter/manifest';
@@ -69,6 +72,8 @@ import { bmiCalculatorManifest } from '../features/utility/tools/bmi-calculator/
 import { charFrequencyManifest } from '../features/utility/tools/char-frequency/manifest';
 import { countdownTimerManifest } from '../features/utility/tools/countdown-timer/manifest';
 import { currencyConverterManifest } from '../features/utility/tools/currency-converter/manifest';
+import { discountCalculatorManifest }    from '../features/utility/tools/discount-calculator/manifest';
+import { temperatureConverterManifest }  from '../features/utility/tools/temperature-converter/manifest';
 import { mortgageCalculatorManifest }    from '../features/utility/tools/mortgage-calculator/manifest';
 import { calorieCalculatorManifest }     from '../features/utility/tools/calorie-calculator/manifest';
 import { dateCalculatorManifest } from '../features/utility/tools/date-calculator/manifest';
@@ -172,6 +177,8 @@ const manifests: ToolManifest[] = [
   cssMinifierManifest,
   jsMinifierManifest,
   jwtDecoderManifest,
+  markdownTableManifest,
+  urlParserManifest,
   cronParserManifest,
   jsonToTypeScriptManifest,
   numberFormatterManifest,
@@ -199,6 +206,7 @@ const manifests: ToolManifest[] = [
     meta: { title: 'Word Counter', description: 'Count words online.' },
   },
   textStatisticsManifest,
+  palindromeCheckerManifest,
   findReplaceManifest,
   markdownConverterManifest,
   caseConverterManifest,
@@ -206,6 +214,7 @@ const manifests: ToolManifest[] = [
   removeDuplicatesManifest,
   removeSpacesManifest,
   textSorterManifest,
+  palindromeCheckerManifest,
   findReplaceManifest,
   textToSlugManifest,
   loremIpsumManifest,
@@ -242,6 +251,8 @@ const manifests: ToolManifest[] = [
   unitConverterManifest,
   bmiCalculatorManifest,
   countdownTimerManifest,
+  discountCalculatorManifest,
+  temperatureConverterManifest,
   mortgageCalculatorManifest,
   calorieCalculatorManifest,
   dateCalculatorManifest,

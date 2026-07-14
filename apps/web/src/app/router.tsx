@@ -35,10 +35,14 @@ const CSSMinifierPage = lazy(() => import('../features/developer/tools/css-minif
 const JSMinifierPage = lazy(() => import('../features/developer/tools/js-minifier/JSMinifierPage'));
 const JWTDecoderPage = lazy(() => import('../features/developer/tools/jwt-decoder/JWTDecoderPage'));
 const ContrastCheckerPage = lazy(() => import('../features/color/tools/contrast-checker/ContrastCheckerPage'));
+const MarkdownTablePage       = lazy(() => import('../features/developer/tools/markdown-table/MarkdownTablePage'));
+const URLParserPage          = lazy(() => import('../features/developer/tools/url-parser/URLParserPage'));
 const CronParserPage = lazy(() => import('../features/developer/tools/cron-parser/CronParserPage'));
 const JSONToTypeScriptPage = lazy(() => import('../features/developer/tools/json-to-typescript/JSONToTypeScriptPage'));
 const NumberFormatterPage = lazy(() => import('../features/developer/tools/number-formatter/NumberFormatterPage'));
 const PasswordStrengthPage = lazy(() => import('../features/developer/tools/password-strength/PasswordStrengthPage'));
+const DiscountCalculatorPage  = lazy(() => import('../features/utility/tools/discount-calculator/DiscountCalculatorPage'));
+const TemperatureConverterPage= lazy(() => import('../features/utility/tools/temperature-converter/TemperatureConverterPage'));
 const MortgageCalculatorPage = lazy(() => import('../features/utility/tools/mortgage-calculator/MortgageCalculatorPage'));
 const CalorieCalculatorPage = lazy(() => import('../features/utility/tools/calorie-calculator/CalorieCalculatorPage'));
 const DateCalculatorPage = lazy(() => import('../features/utility/tools/date-calculator/DateCalculatorPage'));
@@ -46,6 +50,7 @@ const SpeedCalculatorPage = lazy(() => import('../features/utility/tools/speed-c
 const BaseConverterPage = lazy(() => import('../features/utility/tools/base-converter/BaseConverterPage'));
 const AspectRatioPage = lazy(() => import('../features/utility/tools/aspect-ratio/AspectRatioPage'));
 const TextStatisticsPage = lazy(() => import('../features/text/tools/text-statistics/TextStatisticsPage'));
+const PalindromeCheckerPage  = lazy(() => import('../features/text/tools/palindrome-checker/PalindromeCheckerPage'));
 const FindReplacePage = lazy(() => import('../features/text/tools/find-replace/FindReplacePage'));
 const DiffToolPage = lazy(() => import('../features/developer/tools/diff-tool/DiffToolPage'));
 const ColorConverterPage = lazy(() => import('../features/developer/tools/color-converter/ColorConverterPage'));
@@ -153,6 +158,8 @@ const router = createBrowserRouter([
           { path: 'developer/css-minifier', element: page(CSSMinifierPage) },
           { path: 'developer/js-minifier', element: page(JSMinifierPage) },
           { path: 'developer/jwt-decoder', element: page(JWTDecoderPage) },
+          { path: 'developer/markdown-table',        element: page(MarkdownTablePage) },
+          { path: 'developer/url-parser',            element: page(URLParserPage) },
           { path: 'developer/cron-parser', element: page(CronParserPage) },
           { path: 'developer/json-to-typescript', element: page(JSONToTypeScriptPage) },
           { path: 'developer/number-formatter', element: page(NumberFormatterPage) },
@@ -172,6 +179,7 @@ const router = createBrowserRouter([
           { path: 'text/remove-spaces', element: page(RemoveSpacesPage) },
           { path: 'text/text-sorter', element: page(TextSorterPage) },
           { path: 'text/text-statistics', element: page(TextStatisticsPage) },
+          { path: 'text/palindrome-checker',         element: page(PalindromeCheckerPage) },
           { path: 'text/find-replace', element: page(FindReplacePage) },
           { path: 'text/text-to-slug', element: page(TextToSlugPage) },
           { path: 'text/lorem-ipsum', element: page(LoremIpsumPage) },
@@ -194,6 +202,8 @@ const router = createBrowserRouter([
           { path: 'utility/unit-converter', element: page(UnitConverterPage) },
           { path: 'utility/bmi-calculator', element: page(BMICalculatorPage) },
           { path: 'utility/countdown-timer', element: page(CountdownTimerPage) },
+          { path: 'utility/discount-calculator',     element: page(DiscountCalculatorPage) },
+          { path: 'utility/temperature-converter',   element: page(TemperatureConverterPage) },
           { path: 'utility/mortgage-calculator', element: page(MortgageCalculatorPage) },
           { path: 'utility/calorie-calculator', element: page(CalorieCalculatorPage) },
           { path: 'utility/date-calculator', element: page(DateCalculatorPage) },
