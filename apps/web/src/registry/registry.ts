@@ -28,6 +28,7 @@ import { diffToolManifest } from '../features/developer/tools/diff-tool/manifest
 import { hashGeneratorManifest } from '../features/developer/tools/hash-generator/manifest';
 import { htmlMinifierManifest } from '../features/developer/tools/html-minifier/manifest';
 import { jsMinifierManifest } from '../features/developer/tools/js-minifier/manifest';
+import { escapeUnescapeManifest }        from '../features/developer/tools/escape-unescape/manifest';
 import { markdownTableManifest }         from '../features/developer/tools/markdown-table/manifest';
 import { urlParserManifest }            from '../features/developer/tools/url-parser/manifest';
 import { cronParserManifest }            from '../features/developer/tools/cron-parser/manifest';
@@ -72,6 +73,7 @@ import { bmiCalculatorManifest } from '../features/utility/tools/bmi-calculator/
 import { charFrequencyManifest } from '../features/utility/tools/char-frequency/manifest';
 import { countdownTimerManifest } from '../features/utility/tools/countdown-timer/manifest';
 import { currencyConverterManifest } from '../features/utility/tools/currency-converter/manifest';
+import { simpleInterestManifest }        from '../features/utility/tools/simple-interest/manifest';
 import { discountCalculatorManifest }    from '../features/utility/tools/discount-calculator/manifest';
 import { temperatureConverterManifest }  from '../features/utility/tools/temperature-converter/manifest';
 import { mortgageCalculatorManifest }    from '../features/utility/tools/mortgage-calculator/manifest';
@@ -177,6 +179,7 @@ const manifests: ToolManifest[] = [
   cssMinifierManifest,
   jsMinifierManifest,
   jwtDecoderManifest,
+  escapeUnescapeManifest,
   markdownTableManifest,
   urlParserManifest,
   cronParserManifest,
@@ -251,6 +254,7 @@ const manifests: ToolManifest[] = [
   unitConverterManifest,
   bmiCalculatorManifest,
   countdownTimerManifest,
+  simpleInterestManifest,
   discountCalculatorManifest,
   temperatureConverterManifest,
   mortgageCalculatorManifest,

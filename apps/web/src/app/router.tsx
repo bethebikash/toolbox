@@ -35,12 +35,14 @@ const CSSMinifierPage = lazy(() => import('../features/developer/tools/css-minif
 const JSMinifierPage = lazy(() => import('../features/developer/tools/js-minifier/JSMinifierPage'));
 const JWTDecoderPage = lazy(() => import('../features/developer/tools/jwt-decoder/JWTDecoderPage'));
 const ContrastCheckerPage = lazy(() => import('../features/color/tools/contrast-checker/ContrastCheckerPage'));
+const EscapeUnescapePage     = lazy(() => import('../features/developer/tools/escape-unescape/EscapeUnescapePage'));
 const MarkdownTablePage       = lazy(() => import('../features/developer/tools/markdown-table/MarkdownTablePage'));
 const URLParserPage          = lazy(() => import('../features/developer/tools/url-parser/URLParserPage'));
 const CronParserPage = lazy(() => import('../features/developer/tools/cron-parser/CronParserPage'));
 const JSONToTypeScriptPage = lazy(() => import('../features/developer/tools/json-to-typescript/JSONToTypeScriptPage'));
 const NumberFormatterPage = lazy(() => import('../features/developer/tools/number-formatter/NumberFormatterPage'));
 const PasswordStrengthPage = lazy(() => import('../features/developer/tools/password-strength/PasswordStrengthPage'));
+const SimpleInterestPage     = lazy(() => import('../features/utility/tools/simple-interest/SimpleInterestPage'));
 const DiscountCalculatorPage  = lazy(() => import('../features/utility/tools/discount-calculator/DiscountCalculatorPage'));
 const TemperatureConverterPage= lazy(() => import('../features/utility/tools/temperature-converter/TemperatureConverterPage'));
 const MortgageCalculatorPage = lazy(() => import('../features/utility/tools/mortgage-calculator/MortgageCalculatorPage'));
@@ -158,6 +160,7 @@ const router = createBrowserRouter([
           { path: 'developer/css-minifier', element: page(CSSMinifierPage) },
           { path: 'developer/js-minifier', element: page(JSMinifierPage) },
           { path: 'developer/jwt-decoder', element: page(JWTDecoderPage) },
+          { path: 'developer/escape-unescape',       element: page(EscapeUnescapePage) },
           { path: 'developer/markdown-table',        element: page(MarkdownTablePage) },
           { path: 'developer/url-parser',            element: page(URLParserPage) },
           { path: 'developer/cron-parser', element: page(CronParserPage) },
@@ -202,6 +205,7 @@ const router = createBrowserRouter([
           { path: 'utility/unit-converter', element: page(UnitConverterPage) },
           { path: 'utility/bmi-calculator', element: page(BMICalculatorPage) },
           { path: 'utility/countdown-timer', element: page(CountdownTimerPage) },
+          { path: 'utility/simple-interest',         element: page(SimpleInterestPage) },
           { path: 'utility/discount-calculator',     element: page(DiscountCalculatorPage) },
           { path: 'utility/temperature-converter',   element: page(TemperatureConverterPage) },
           { path: 'utility/mortgage-calculator', element: page(MortgageCalculatorPage) },
