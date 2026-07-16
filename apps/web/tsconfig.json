@@ -1,6 +1,7 @@
 {
   "extends": "@toolbox/tsconfig/react.json",
   "compilerOptions": {
+    "noEmit": true,
     "paths": {
       "@toolbox/design-system":   ["../../packages/design-system/src"],
       "@toolbox/design-system/*": ["../../packages/design-system/src/*"],
@@ -8,6 +9,6 @@
       "@toolbox/shared/*":        ["../../packages/shared/src/*"]
     }
   },
-  "include": ["src", "../../packages/design-system/src", "../../packages/shared/src"],
+  "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
